@@ -7,11 +7,14 @@
 //
 
 #import "ChatViewController.h"
+#import "ChatCell.h"
 #import <Parse/Parse.h>
 
-@interface ChatViewController ()
+@interface ChatViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITextField *chatMessageField;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *array;
 
 @end
 
@@ -19,7 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refresh) userInfo:nil repeats:YES];
 }
 
 - (IBAction)didTapSend:(id)sender {
@@ -33,6 +40,31 @@
             NSLog(@"Problem saving message: %@", error.localizedDescription);
         }
     }];
+}
+
+- (void)refresh {
+    PFQuery *query = [PFQuery queryWithClassName:@"Message_fbu2020"];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * posts, NSError * error) {
+        if (posts != nil) {
+            self.array = posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
+    PFObject *message = self.array[indexPath.row];
+    cell.textLabel.text = message[@"text"];
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.array.count;
 }
 
 /*
