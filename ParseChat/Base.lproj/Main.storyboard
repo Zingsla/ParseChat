@@ -92,28 +92,38 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="VKp-Pu-t8V" customClass="ChatCell">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="41"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VKp-Pu-t8V" id="qaU-Zs-8MC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="41"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tj2-4d-Jkm">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGa-Um-TML">
                                                     <rect key="frame" x="10" y="10" width="394" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tj2-4d-Jkm">
+                                                    <rect key="frame" x="10" y="41" width="394" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Tj2-4d-Jkm" secondAttribute="trailing" constant="10" id="FLo-oj-hTK"/>
-                                                <constraint firstItem="Tj2-4d-Jkm" firstAttribute="leading" secondItem="qaU-Zs-8MC" secondAttribute="leading" constant="10" id="K9g-3q-JD0"/>
-                                                <constraint firstItem="Tj2-4d-Jkm" firstAttribute="top" secondItem="qaU-Zs-8MC" secondAttribute="top" constant="10" id="aLD-TH-b0G"/>
-                                                <constraint firstAttribute="bottom" secondItem="Tj2-4d-Jkm" secondAttribute="bottom" constant="10" id="eHd-Xm-J82"/>
+                                                <constraint firstAttribute="trailing" secondItem="DGa-Um-TML" secondAttribute="trailing" constant="10" id="0ck-eV-J9j"/>
+                                                <constraint firstAttribute="bottom" secondItem="Tj2-4d-Jkm" secondAttribute="bottom" constant="10" id="4iP-DW-sdv"/>
+                                                <constraint firstItem="Tj2-4d-Jkm" firstAttribute="leading" secondItem="qaU-Zs-8MC" secondAttribute="leading" constant="10" id="IIg-lk-qTo"/>
+                                                <constraint firstItem="DGa-Um-TML" firstAttribute="top" secondItem="qaU-Zs-8MC" secondAttribute="top" constant="10" id="IY4-yu-czz"/>
+                                                <constraint firstItem="Tj2-4d-Jkm" firstAttribute="top" secondItem="DGa-Um-TML" secondAttribute="bottom" constant="10" id="Q5W-1n-wOg"/>
+                                                <constraint firstItem="DGa-Um-TML" firstAttribute="leading" secondItem="qaU-Zs-8MC" secondAttribute="leading" constant="10" id="Vrt-13-ZCl"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tj2-4d-Jkm" secondAttribute="trailing" constant="10" id="wJC-au-tbq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="textLabel" destination="Tj2-4d-Jkm" id="2au-0W-Opl"/>
+                                            <outlet property="usernameLabel" destination="DGa-Um-TML" id="tXd-Dx-1Ty"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -33,6 +33,7 @@
 - (IBAction)didTapSend:(id)sender {
     PFObject *chatMessage = [PFObject objectWithClassName:@"Message_fbu2020"];
     chatMessage[@"text"] = self.chatMessageField.text;
+    chatMessage[@"user"] = PFUser.currentUser;
     [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (succeeded) {
             NSLog(@"The message was saved!");
@@ -47,6 +48,7 @@
 - (void)refresh {
     PFQuery *query = [PFQuery queryWithClassName:@"Message_fbu2020"];
     [query orderByDescending:@"createdAt"];
+    [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * posts, NSError * error) {
         if (posts != nil) {
             self.array = posts;
@@ -60,6 +62,14 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
     PFObject *message = self.array[indexPath.row];
+    PFUser *user = message[@"user"];
+    
+    if (user != nil) {
+        cell.usernameLabel.text = user.username;
+    } else {
+        cell.usernameLabel.text = @"Anonymous User";
+    }
+    
     cell.textLabel.text = message[@"text"];
     
     return cell;
