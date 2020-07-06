@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1D551141AB13C449CB3C5A30 /* Pods_ParseChat_ParseChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C261B911F54579DE33A04FD /* Pods_ParseChat_ParseChatUITests.framework */; };
+		2266B6AC24B3884C003BE849 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266B6AB24B3884C003BE849 /* LoginViewController.m */; };
 		226BB77D24B383FD005DF215 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB77C24B383FD005DF215 /* AppDelegate.m */; };
 		226BB78024B383FD005DF215 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB77F24B383FD005DF215 /* SceneDelegate.m */; };
-		226BB78324B383FD005DF215 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB78224B383FD005DF215 /* ViewController.m */; };
 		226BB78624B383FD005DF215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226BB78424B383FD005DF215 /* Main.storyboard */; };
 		226BB78824B383FE005DF215 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226BB78724B383FE005DF215 /* Assets.xcassets */; };
 		226BB78B24B383FE005DF215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226BB78924B383FE005DF215 /* LaunchScreen.storyboard */; };
@@ -39,13 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2266B6AA24B3884C003BE849 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2266B6AB24B3884C003BE849 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		226BB77824B383FD005DF215 /* ParseChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		226BB77B24B383FD005DF215 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		226BB77C24B383FD005DF215 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		226BB77E24B383FD005DF215 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		226BB77F24B383FD005DF215 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		226BB78124B383FD005DF215 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		226BB78224B383FD005DF215 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		226BB78524B383FD005DF215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		226BB78724B383FE005DF215 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		226BB78A24B383FE005DF215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,6 +106,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2266B6A924B3883A003BE849 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2266B6AA24B3884C003BE849 /* LoginViewController.h */,
+				2266B6AB24B3884C003BE849 /* LoginViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		226BB76F24B383FD005DF215 = {
 			isa = PBXGroup;
 			children = (
@@ -131,12 +140,11 @@
 		226BB77A24B383FD005DF215 /* ParseChat */ = {
 			isa = PBXGroup;
 			children = (
+				2266B6A924B3883A003BE849 /* View Controllers */,
 				226BB77B24B383FD005DF215 /* AppDelegate.h */,
 				226BB77C24B383FD005DF215 /* AppDelegate.m */,
 				226BB77E24B383FD005DF215 /* SceneDelegate.h */,
 				226BB77F24B383FD005DF215 /* SceneDelegate.m */,
-				226BB78124B383FD005DF215 /* ViewController.h */,
-				226BB78224B383FD005DF215 /* ViewController.m */,
 				226BB78424B383FD005DF215 /* Main.storyboard */,
 				226BB78724B383FE005DF215 /* Assets.xcassets */,
 				226BB78924B383FE005DF215 /* LaunchScreen.storyboard */,
@@ -174,7 +182,6 @@
 				CE84410385ABA005425980AE /* Pods-ParseChatTests.debug.xcconfig */,
 				AA204C2603579E046878D41B /* Pods-ParseChatTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -416,7 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				226BB78324B383FD005DF215 /* ViewController.m in Sources */,
+				2266B6AC24B3884C003BE849 /* LoginViewController.m in Sources */,
 				226BB77D24B383FD005DF215 /* AppDelegate.m in Sources */,
 				226BB78E24B383FE005DF215 /* main.m in Sources */,
 				226BB78024B383FD005DF215 /* SceneDelegate.m in Sources */,
