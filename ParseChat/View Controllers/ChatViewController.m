@@ -26,6 +26,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    [self refresh];
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refresh) userInfo:nil repeats:YES];
 }
 
@@ -36,6 +37,7 @@
         if (succeeded) {
             NSLog(@"The message was saved!");
             self.chatMessageField.text = @"";
+            [self refresh];
         } else {
             NSLog(@"Problem saving message: %@", error.localizedDescription);
         }
