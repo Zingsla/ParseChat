@@ -32,8 +32,9 @@
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error != nil) {
             [self testLogin];
-            NSLog(@"Error: %@", error);
+            NSLog(@"Error: %@", error.localizedDescription);
         } else {
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
             NSLog(@"User registered successfully!");
         }
     }];
@@ -46,8 +47,9 @@
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError * error) {
         if (error != nil) {
             [self testLogin];
-            NSLog(@"User log in failed: %@", error);
+            NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
             NSLog(@"User logged in successfully!");
         }
     }];
